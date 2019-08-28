@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait 
-from selenium.webdriver.support import expected_conditions as EC 
+from selenium.webdriver.support.ui import WebDriverWait # available since 2.4.0
+from selenium.webdriver.support import expected_conditions as EC # available since 2.26.0
 
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
@@ -73,10 +73,10 @@ while page < 101:
 					level = level.replace(u'\u200b', u"")
 				if u'\u201c' in level:
 					level = level.replace(u'\u201c', u'"')
-				if u'\u201c' in level:
-					level = level.replace(u'\u201c', u'"')
 				if u'\u201d' in level:
-					level = level.replace(u'\u201c', u'"')
+					level = level.replace(u'\u201d', u'"')
+				if u'\xb7' in level:
+					level = level.replace(u'\xb7', u'"')
 
 				level_array.append(level)
 
@@ -99,7 +99,9 @@ while page < 101:
 				if u'\u201c' in company:
 					company = company.replace(u'\u201c', u'"')
 				if u'\u201d' in company:
-					company = company.replace(u'\u201c', u'"')
+					company = company.replace(u'\u201d', u'"')
+				if u'\xb7' in company:
+					company = company.replace(u'\xb7', u'"')
 
 				company_array.append(company)
 
@@ -122,7 +124,9 @@ while page < 101:
 				if u'\u201c' in title:
 					title = title.replace(u'\u201c', u'"')
 				if u'\u201d' in title:
-					title = title.replace(u'\u201c', u'"')
+					title = title.replace(u'\u201d', u'"')
+				if u'\xb7' in title:
+					title = title.replace(u'\xb7', u'"')
 
 				title_array.append(title)
 
@@ -145,7 +149,9 @@ while page < 101:
 				if u'\u201c' in type:
 					type = type.replace(u'\u201c', u'"')
 				if u'\u201d' in type:
-					type = type.replace(u'\u201c', u'"')
+					type = type.replace(u'\u201d', u'"')
+				if u'\xb7' in type:
+					type = type.replace(u'\xb7', u'"')
 
 				type_array.append(type)
 
@@ -168,7 +174,9 @@ while page < 101:
 				if u'\u201c' in category:
 					category = category.replace(u'\u201c', u'"')
 				if u'\u201d' in category:
-					category = category.replace(u'\u201c', u'"')
+					category = category.replace(u'\u201d', u'"')
+				if u'\xb7' in category:
+					category = category.replace(u'\xb7', u'"')
 
 				category_array.append(category)
 
@@ -201,7 +209,9 @@ while page < 101:
 					if u'\u201c' in description_1:
 						description_1 = description_1.replace(u'\u201c', u'"')
 					if u'\u201d' in description_1:
-						description_1 = description_1.replace(u'\u201c', u'"')
+						description_1 = description_1.replace(u'\u201d', u'"')
+					if u'\xb7' in description_1:
+						description_1 = description_1.replace(u'\xb7', u'"')
 
 				except AttributeError:
 					print(".")
@@ -235,7 +245,9 @@ while page < 101:
 					if u'\u201c' in description_2:
 						description_2 = description_2.replace(u'\u201c', u'"')
 					if u'\u201d' in description_2:
-						description_2 = description_2.replace(u'\u201c', u'"')
+						description_2 = description_2.replace(u'\u201d', u'"')
+					if u'\xb7' in description_2:
+						description_2 = description_2.replace(u'\xb7', u'"')
 
 				except AttributeError:
 					print(".")
